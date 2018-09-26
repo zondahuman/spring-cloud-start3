@@ -24,17 +24,17 @@
         <java.version>1.8</java.version>
         <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
         <spring.boot.zuul.version>1.4.4.RELEASE</spring.boot.zuul.version>
+        <spring.boot.eureka.version>1.4.5.RELEASE</spring.boot.eureka.version>
     </properties>
-
 
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <!--  版本升级 Dalston.SR2 - Dalston.SR4, vEdgware.SR4-->
-                <version>Dalston.SR4</version>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -42,14 +42,13 @@
     </dependencyManagement>
 
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <!--<version>1.5.14.RELEASE</version>-->
-        <version>2.0.0.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
+    <!--<parent>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>${spring.boot.version}</version>-->
+        <!--&lt;!&ndash;<version>2.0.0.RELEASE</version>&ndash;&gt;-->
+        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--</parent>-->
 
 
     <dependencies>
@@ -66,6 +65,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>${spring.boot.eureka.version}</version>
         </dependency>
 
         <!-- logback + slf4j -->
@@ -102,12 +102,6 @@
 
 
     </dependencies>
-
-
-
-
-
-
 
 
     <build>
