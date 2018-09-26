@@ -34,11 +34,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
-            <!--<version>${spring.boot.version}</version>-->
+            <version>${spring.boot.eureka.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>${spring.boot.eureka.version}</version>
         </dependency>
 
 
