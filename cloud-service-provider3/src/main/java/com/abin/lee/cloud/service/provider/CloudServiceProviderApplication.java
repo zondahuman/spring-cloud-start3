@@ -1,5 +1,6 @@
 package com.abin.lee.cloud.service.provider;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -12,7 +13,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class CloudServiceProviderApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(CloudServiceProviderApplication.class).web(true).run(args);
+        SpringApplication.run(CloudServiceProviderApplication.class, args);
+
+//        new SpringApplicationBuilder(CloudServiceProviderApplication.class).web(true).run(args);
     }
 
 }
