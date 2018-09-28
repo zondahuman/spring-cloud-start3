@@ -37,16 +37,6 @@ public class CloudServiceFeignController {
         return result;
     }
 
-    @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
-    public Integer add2(Integer param1, Integer param2) {
-        log.info("param1=" + param1 + ", param2=" + param2);
-        Integer result = this.cloudServiceProvider2Feign.add2(param1, param2);
-        logger.info(", result:" + result);
-        return result;
-    }
-
-
     @RequestMapping(value = "/find", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public Map<String, String> find(String name, String count) {
@@ -56,6 +46,16 @@ public class CloudServiceFeignController {
         return map;
     }
 
+
+    
+    @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public Integer add2(Integer param1, Integer param2) {
+        log.info("param1=" + param1 + ", param2=" + param2);
+        Integer result = this.cloudServiceProvider2Feign.add2(param1, param2);
+        logger.info(", result:" + result);
+        return result;
+    }
 
     @RequestMapping(value = "/find2", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody

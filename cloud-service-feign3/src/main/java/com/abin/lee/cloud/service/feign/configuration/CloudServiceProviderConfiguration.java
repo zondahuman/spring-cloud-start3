@@ -13,7 +13,7 @@ public class CloudServiceProviderConfiguration {
 
     @Bean
     public Contract feignContract() {
-        return new feign.Contract.Default();
+        return new Contract.Default();
     }
 
     @Bean

@@ -65,7 +65,7 @@ public class CloudServiceProviderController {
         return result;
     }
 
-    @RequestMapping(value = "/findOrderByParam", method = RequestMethod.GET)
+    @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     List<CloudModel> findOrderByParam(@RequestAttribute("cloudModel") CloudModel cloudModel) {
         log.info("cloudModel=" + JsonUtil.toJson(cloudModel));
@@ -78,8 +78,8 @@ public class CloudServiceProviderController {
     }
 
 
-    @RequestMapping(value = "/findOrderById", method = RequestMethod.GET)
-    List<CloudModel> findOrderById(@RequestParam("id") Long id) {
+    @RequestMapping(value = "/findOrderById", method = {RequestMethod.GET, RequestMethod.POST})
+    List<CloudModel> findOrderById(Long id) {
         log.info("id=" + id);
         List<CloudModel> list = new ArrayList<>();
         list.add(new CloudModel(1, "lee"));
