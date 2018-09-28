@@ -41,9 +41,9 @@ public class CloudServiceProviderController {
     }
 
 
-    @RequestMapping(value = "/getConf", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/find", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public Map<String, String> getConf(String name, String count) {
+    public Map<String, String> find(String name, String count) {
         Map<String, String> map = new HashMap<>();
         String finName = "hi,"+name;
         String finCount = "count is : " + count;

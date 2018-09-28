@@ -19,8 +19,8 @@ public interface CloudServiceFeign {
     @RequestMapping(value = "/add", method = {RequestMethod.POST})
     Integer add(@RequestParam("param1")Integer param1, @RequestParam("param2")Integer param2);
 
-    @RequestMapping(value = "/getConf", method = {RequestMethod.POST})
-    Map<String, String> getConf(@RequestParam("name")String name, @RequestParam("count")String count) ;
+    @RequestMapping(value = "/find", method = {RequestMethod.POST})
+    Map<String, String> find(@RequestParam("name")String name, @RequestParam("count")String count) ;
 
 //    @RequestMapping(value = "/category/find", method = RequestMethod.GET)
 //    List<String> findCategory(@RequestParam("category_id") long categoryId);

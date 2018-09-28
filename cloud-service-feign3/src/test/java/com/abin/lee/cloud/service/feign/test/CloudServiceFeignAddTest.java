@@ -11,12 +11,10 @@ import java.util.Map;
  * Created by abin on 2018/7/12.
  */
 public class CloudServiceFeignAddTest {
-    private static final String httpUrl = "http://localhost:9444/add";
+    private static final String httpUrl = "http://localhost:9444/";
     private static final String httpCreateUrl = "http://localhost:9444/add";
+    private static final String httpFindUrl = "http://localhost:9444/find";
 
-    private static final String httpConfUrl = "http://localhost:9444/getConf";
-
-    //    private static final String httpCreateUrl = "http://localhost:9455/add";
     public static void main(String[] args) throws IOException {
 
 
@@ -34,7 +32,7 @@ public class CloudServiceFeignAddTest {
         params.put("name", "lee");
         params.put("count", "100");
 
-        String result = OkHttpClientUtil.httpPost(httpConfUrl, params);
+        String result = OkHttpClientUtil.httpPost(httpFindUrl, params);
         System.out.println("result=" + result);
     }
 
@@ -50,8 +48,8 @@ public class CloudServiceFeignAddTest {
 
 
     @Test
-    public void testGetConf() throws IOException {
-        String result = OkHttpClientUtil.httpGet(httpConfUrl);
+    public void testFeignFind() throws IOException {
+        String result = OkHttpClientUtil.httpGet(httpFindUrl);
         System.out.println("result=" + result);
     }
 

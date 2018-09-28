@@ -35,11 +35,11 @@ public class CloudServiceFeignController {
     }
 
 
-    @RequestMapping(value = "/getConf", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/find", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public Map<String, String> getConf(String name, String count) {
+    public Map<String, String> find(String name, String count) {
         log.info("name=" + name + ", count=" + count);
-        Map<String, String> map = this.cloudServiceFeign.getConf(name, count);
+        Map<String, String> map = this.cloudServiceFeign.find(name, count);
         log.info("map=" + map);
         return map;
     }
