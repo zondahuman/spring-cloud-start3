@@ -1,6 +1,6 @@
 # port
 server:
-        port: 9455
+        port: 9444
 spring:
         application:
                       name: cloud-service-feign
