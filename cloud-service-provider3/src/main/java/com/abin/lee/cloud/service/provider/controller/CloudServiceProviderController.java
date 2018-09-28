@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 创建“服务提供方”
@@ -41,12 +43,14 @@ public class CloudServiceProviderController {
 
     @RequestMapping(value = "/getConf", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public void getConf() {
-        String finName = "aaaaaaaaaaaaaaaa";
-        String finCount = "55";
+    public Map<String, String> getConf(String name, String count) {
+        Map<String, String> map = new HashMap<>();
+        String finName = "hi,"+name;
+        String finCount = "count is : " + count;
         log.info("finName=" + finName + ", finCount=" + finCount);
-
-
+        map.put("finName", finName);
+        map.put("finCount", finCount);
+        return map;
     }
 
 
