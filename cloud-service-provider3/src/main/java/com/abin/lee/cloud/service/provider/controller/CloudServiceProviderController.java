@@ -15,8 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//import org.springframework.cloud.context.config.annotation.RefreshScope;
-
 /**
  * 创建“服务提供方”
  * 下面我们创建提供服务的客户端，并向服务注册中心注册自己。
@@ -87,8 +85,6 @@ public class CloudServiceProviderController {
         log.info("list=" + JsonUtil.toJson(list));
         return list;
     }
-
-
 
 
 }
