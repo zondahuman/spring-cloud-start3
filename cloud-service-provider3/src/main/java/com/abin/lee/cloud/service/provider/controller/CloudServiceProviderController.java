@@ -27,8 +27,6 @@ public class CloudServiceProviderController {
 
     @Resource
     DiscoveryClient discoveryClient;
-    @Resource
-    Registration registration;
 
 
     @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})

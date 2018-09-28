@@ -14,7 +14,6 @@ public class CloudServiceProviderApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CloudServiceProviderApplication.class, args);
-
 //        new SpringApplicationBuilder(CloudServiceProviderApplication.class).web(true).run(args);
     }
 
