@@ -1,10 +1,11 @@
 package com.abin.lee.cloud.service.feign.service;
 
+import com.abin.lee.cloud.service.model.CloudModel;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -17,23 +18,26 @@ import java.util.Map;
 public interface CloudServiceFeign {
 
     @RequestMapping(value = "/add", method = {RequestMethod.POST})
-    Integer add(@RequestParam("param1")Integer param1, @RequestParam("param2")Integer param2);
+    Integer add(@RequestParam("param1") Integer param1, @RequestParam("param2") Integer param2);
 
     @RequestMapping(value = "/find", method = {RequestMethod.POST})
-    Map<String, String> find(@RequestParam("name")String name, @RequestParam("count")String count) ;
+    Map<String, String> find(@RequestParam("name") String name, @RequestParam("count") String count);
 
-//    @RequestMapping(value = "/category/find", method = RequestMethod.GET)
-//    List<String> findCategory(@RequestParam("category_id") long categoryId);
-//
-//    @RequestMapping(value = "/consumerRuleKey/find", method = RequestMethod.GET)
-//    List<String> findConsumerRuleKey(@RequestParam("consumerRuleKey_id") long consumerRuleKeyId);
-//
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    List<String> get(@RequestParam("id") Long id);
+
+    @RequestMapping(value = "/findOrderByParam", method = RequestMethod.GET)
+    List<CloudModel> findOrderByParam(@RequestAttribute("cloudModel") CloudModel orderModel);
+
+    @RequestMapping(value = "/findOrderById", method = RequestMethod.GET)
+    List<CloudModel> findOrderById(@RequestParam("id") Long id);
+
+
 //    @RequestMapping(value = "/consumerRule/find", method = RequestMethod.GET)
 //    List<String> findConsumerRule(@RequestParam("consumerRule_id") long consumerRuleId);
 //
 //    @RequestMapping(value = "/rule/find", method = RequestMethod.GET)
 //    List<String> findRule(@RequestParam("rule_id") long ruleId);
-
 
 
 }

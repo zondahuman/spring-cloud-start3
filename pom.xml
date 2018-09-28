@@ -13,6 +13,7 @@
         <module>cloud-service-feign3</module>
         <module>cloud-service-ribbon3</module>
         <module>cloud-service-common3</module>
+        <module>cloud-service-model</module>
     </modules>
 
     <packaging>pom</packaging>

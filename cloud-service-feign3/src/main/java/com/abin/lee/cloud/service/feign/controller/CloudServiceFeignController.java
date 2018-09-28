@@ -4,6 +4,7 @@ import com.abin.lee.cloud.service.feign.service.CloudServiceFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +16,7 @@ import java.util.Map;
 /**
  * Created by abin on 2018/9/27.
  */
-
+@RefreshScope // 使用该注解的类，会在接到SpringCloud配置中心配置刷新的时候，自动将新的配置更新到该类对应的字段中。
 @Slf4j
 @RestController
 public class CloudServiceFeignController {
