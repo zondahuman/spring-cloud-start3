@@ -8,17 +8,17 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by abin on 2018/9/28.
  */
-@Configuration
+//@Configuration
 public class CloudServiceProvider2Configuration {
 
-    @Bean
-    public Contract feignContract() {
-        return new Contract.Default();
-    }
-
-    @Bean
-    Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
-    }
+//    @Bean
+//    public Contract feignContract() {
+//        return new Contract.Default();
+//    }
+//
+//    @Bean
+//    Logger.Level feignLoggerLevel() {
+//        return Logger.Level.FULL;
+//    }
 
 }

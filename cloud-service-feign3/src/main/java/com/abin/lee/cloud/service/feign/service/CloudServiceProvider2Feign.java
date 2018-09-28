@@ -18,20 +18,20 @@ import java.util.Map;
 //@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455", configuration = CloudServiceProvider2Configuration.class)
 public interface CloudServiceProvider2Feign {
 
-//    @RequestMapping(value = "/add2", method = {RequestMethod.POST})
-//    Integer add2(@RequestParam("param1") Integer param1, @RequestParam("param2") Integer param2);
-//
-//    @RequestMapping(value = "/find2", method = {RequestMethod.POST})
-//    Map<String, String> find2(@RequestParam("name") String name, @RequestParam("count") String count);
-//
-//    @RequestMapping(value = "/get2", method = {RequestMethod.GET, RequestMethod.POST})
-//    List<String> get2(@RequestParam("id") Long id);
-//
-//    @RequestMapping(value = "/findOrderByParam2", method = {RequestMethod.GET, RequestMethod.POST})
-//    List<CloudModel> findOrderByParam2(@RequestAttribute("cloudModel") CloudModel orderModel);
-//
-//    @RequestMapping(value = "/findOrderById2", method = {RequestMethod.GET, RequestMethod.POST})
-//    List<CloudModel> findOrderById2(@RequestParam("id") Long id);
+    @RequestMapping(value = "/add2", method = {RequestMethod.POST})
+    Integer add2(@RequestParam("param1") Integer param1, @RequestParam("param2") Integer param2);
+
+    @RequestMapping(value = "/find2", method = {RequestMethod.POST})
+    Map<String, String> find2(@RequestParam("name") String name, @RequestParam("count") String count);
+
+    @RequestMapping(value = "/get2", method = {RequestMethod.GET})
+    List<String> get2(@RequestParam("id") Long id);
+
+    @RequestMapping(value = "/findOrderByParam2", method = {RequestMethod.GET})
+    List<CloudModel> findOrderByParam2(@RequestAttribute("cloudModel") CloudModel orderModel);
+
+    @RequestMapping(value = "/findOrderById2", method = {RequestMethod.GET})
+    List<CloudModel> findOrderById2(@RequestParam("id") Long id);
 
 
 }
