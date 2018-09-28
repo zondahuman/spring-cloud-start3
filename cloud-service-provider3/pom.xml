@@ -13,6 +13,8 @@
 
 
 
+
+
     <dependencies>
         <dependency>
             <artifactId>cloud-service-common3</artifactId>
@@ -21,29 +23,9 @@
         </dependency>
 
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-config</artifactId>-->
-            <!--<version>2.0.1.RELEASE</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.springframework.boot</groupId>-->
-                    <!--<artifactId>spring-boot-starter</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.springframework.cloud</groupId>-->
-                    <!--<artifactId>spring-cloud-starter</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.springframework.cloud</groupId>-->
-                    <!--<artifactId>spring-cloud-commons</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
-
-
-
     </dependencies>
+
+
 
 
 
