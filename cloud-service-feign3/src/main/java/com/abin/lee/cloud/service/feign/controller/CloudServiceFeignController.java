@@ -41,7 +41,7 @@ public class CloudServiceFeignController {
     @ResponseBody
     public Integer add2(Integer param1, Integer param2) {
         log.info("param1=" + param1 + ", param2=" + param2);
-        Integer result = this.cloudServiceProvider2Feign.add(param1, param2);
+        Integer result = this.cloudServiceProvider2Feign.add2(param1, param2);
         logger.info(", result:" + result);
         return result;
     }
@@ -61,7 +61,7 @@ public class CloudServiceFeignController {
     @ResponseBody
     public Map<String, String> find2(String name, String count) {
         log.info("name=" + name + ", count=" + count);
-        Map<String, String> map = this.cloudServiceProvider2Feign.find(name, count);
+        Map<String, String> map = this.cloudServiceProvider2Feign.find2(name, count);
         log.info("map=" + map);
         return map;
     }
