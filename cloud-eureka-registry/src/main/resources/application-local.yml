@@ -43,11 +43,6 @@ eureka:
                # 集群之间相互更新节点信息的时间频率
                peer-eureka-nodes-update-interval-ms: 60000
 
-
-info:
-      version: @project.version@
-      spring-boot-version: @project.parent.version@
-
 #来开启一些管理功能，且须在配置文件加入一句：
 management:
             security:
