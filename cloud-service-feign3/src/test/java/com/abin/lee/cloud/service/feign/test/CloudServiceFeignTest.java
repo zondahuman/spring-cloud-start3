@@ -26,7 +26,6 @@ public class CloudServiceFeignTest {
         Map<String, String> params = Maps.newHashMap();
         params.put("param1", "100");
         params.put("param2", "200");
-
         String result = OkHttpClientUtil.httpPost(httpCreateUrl, params);
         System.out.println("result=" + result);
     }
@@ -34,7 +33,10 @@ public class CloudServiceFeignTest {
 
     @Test
     public void testFeignFind() throws IOException {
-        String result = OkHttpClientUtil.httpGet(httpFindUrl);
+        Map<String, String> params = Maps.newHashMap();
+        params.put("name", "lee");
+        params.put("count", "100");
+        String result = OkHttpClientUtil.httpPost(httpFindUrl, params);
         System.out.println("result=" + result);
     }
 
@@ -48,11 +50,9 @@ public class CloudServiceFeignTest {
 
     @Test
     public void testFeignGetConf() throws IOException {
-        Map<String, String> params = Maps.newHashMap();
-        params.put("name", "lee");
-        params.put("count", "100");
 
-        String result = OkHttpClientUtil.httpPost(httpFindUrl, params);
+
+        String result = OkHttpClientUtil.httpGet(httpFindUrl);
         System.out.println("result=" + result);
     }
 

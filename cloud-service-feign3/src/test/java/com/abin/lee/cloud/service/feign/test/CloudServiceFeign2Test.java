@@ -30,7 +30,11 @@ public class CloudServiceFeign2Test {
 
     @Test
     public void testFeignFind() throws IOException {
-        String result = OkHttpClientUtil.httpGet(httpFindUrl);
+        Map<String, String> params = Maps.newHashMap();
+        params.put("name", "lee");
+        params.put("count", "100");
+
+        String result = OkHttpClientUtil.httpPost(httpFindUrl, params);
         System.out.println("result=" + result);
     }
 

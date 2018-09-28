@@ -14,7 +14,7 @@ import java.util.Map;
  * https://blog.csdn.net/huaseven0527/article/details/80533983
  */
 //首先使用serverId查找服务，如果找不到再使用url查找。
-//@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455" )
+@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455" )
 //@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455", configuration = CloudServiceProvider2Configuration.class)
 public interface CloudServiceProvider2Feign {
 

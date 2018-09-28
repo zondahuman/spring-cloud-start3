@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by abin on 2018/9/28.
+ *  如果启用了这里的注解Bean必须在feignClient注解的接口中使用feign的注解，默认使用springmvc注解
  */
 //@Configuration
 public class CloudServiceProvider2Configuration {
