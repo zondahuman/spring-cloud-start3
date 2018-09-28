@@ -1,9 +1,11 @@
 package com.abin.lee.cloud.service.feign.service;
 
-import com.abin.lee.cloud.service.feign.configuration.CloudServiceProviderConfiguration;
 import com.abin.lee.cloud.service.model.CloudModel;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +14,7 @@ import java.util.Map;
  * Created by abin on 2018/9/27.
  */
 //首先使用serverId查找服务，如果找不到再使用url查找。
-@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455" )
+@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455")
 //@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455", configuration = CloudServiceProviderConfiguration.class)
 public interface CloudServiceProviderFeign {
 
@@ -30,9 +32,6 @@ public interface CloudServiceProviderFeign {
 
     @RequestMapping(value = "/findOrderById", method = {RequestMethod.GET, RequestMethod.POST})
     List<CloudModel> findOrderById(@RequestParam("id") Long id);
-
-
-
 
 
 }
