@@ -11,10 +11,10 @@ import java.util.Map;
  * Created by abin on 2018/7/12.
  */
 public class CloudServiceFeignAddTest {
-    private static final String httpUrl = "http://localhost:9455/add";
-    private static final String httpCreateUrl = "http://localhost:9455/add";
+    private static final String httpUrl = "http://localhost:9444/add";
+    private static final String httpCreateUrl = "http://localhost:9444/add";
 
-    private static final String httpConfUrl = "http://localhost:9455/getConf";
+    private static final String httpConfUrl = "http://localhost:9444/getConf";
 
     //    private static final String httpCreateUrl = "http://localhost:9455/add";
     public static void main(String[] args) throws IOException {
@@ -29,16 +29,20 @@ public class CloudServiceFeignAddTest {
     }
 
     @Test
-    public void testZipkinSimple2() throws IOException {
-        String result = OkHttpClientUtil.httpGet(httpUrl);
+    public void testFeignGetConf() throws IOException {
+        Map<String, String> params = Maps.newHashMap();
+        params.put("name", "lee");
+        params.put("count", "100");
+
+        String result = OkHttpClientUtil.httpPost(httpConfUrl, params);
         System.out.println("result=" + result);
     }
 
     @Test
-    public void testZipkinCreate() throws IOException {
+    public void testFeignAdd() throws IOException {
         Map<String, String> params = Maps.newHashMap();
-        params.put("param1", "12345");
-        params.put("param2", "67890");
+        params.put("param1", "100");
+        params.put("param2", "200");
 
         String result = OkHttpClientUtil.httpPost(httpCreateUrl, params);
         System.out.println("result=" + result);

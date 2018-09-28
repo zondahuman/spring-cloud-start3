@@ -40,6 +40,7 @@ public class CloudServiceFeignController {
     public Map<String, String> getConf(String name, String count) {
         log.info("name=" + name + ", count=" + count);
         Map<String, String> map = this.cloudServiceFeign.getConf(name, count);
+        log.info("map=" + map);
         return map;
     }
 
