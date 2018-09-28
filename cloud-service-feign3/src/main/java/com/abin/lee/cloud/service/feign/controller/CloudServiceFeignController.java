@@ -1,6 +1,7 @@
 package com.abin.lee.cloud.service.feign.controller;
 
-import com.abin.lee.cloud.service.feign.service.CloudServiceFeign;
+import com.abin.lee.cloud.service.feign.service.CloudServiceProvider2Feign;
+import com.abin.lee.cloud.service.feign.service.CloudServiceProviderFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,14 +24,24 @@ public class CloudServiceFeignController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
     @Resource
-    CloudServiceFeign cloudServiceFeign;
-
+    CloudServiceProviderFeign cloudServiceProviderFeign;
+    @Resource
+    CloudServiceProvider2Feign cloudServiceProvider2Feign;
 
     @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public Integer add(Integer param1, Integer param2) {
         log.info("param1=" + param1 + ", param2=" + param2);
-        Integer result = this.cloudServiceFeign.add(param1, param2);
+        Integer result = this.cloudServiceProviderFeign.add(param1, param2);
+        logger.info(", result:" + result);
+        return result;
+    }
+
+    @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public Integer add2(Integer param1, Integer param2) {
+        log.info("param1=" + param1 + ", param2=" + param2);
+        Integer result = this.cloudServiceProvider2Feign.add(param1, param2);
         logger.info(", result:" + result);
         return result;
     }
@@ -40,7 +51,17 @@ public class CloudServiceFeignController {
     @ResponseBody
     public Map<String, String> find(String name, String count) {
         log.info("name=" + name + ", count=" + count);
-        Map<String, String> map = this.cloudServiceFeign.find(name, count);
+        Map<String, String> map = this.cloudServiceProviderFeign.find(name, count);
+        log.info("map=" + map);
+        return map;
+    }
+
+
+    @RequestMapping(value = "/find2", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public Map<String, String> find2(String name, String count) {
+        log.info("name=" + name + ", count=" + count);
+        Map<String, String> map = this.cloudServiceProvider2Feign.find(name, count);
         log.info("map=" + map);
         return map;
     }
