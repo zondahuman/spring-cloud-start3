@@ -3,7 +3,7 @@ server:
         port: 9455
 spring:
         application:
-                      name: cloud-service-provider
+                      name: cloud-service-feign
 
 eureka:
         client:
