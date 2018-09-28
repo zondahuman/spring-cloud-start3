@@ -7,7 +7,7 @@
     <groupId>com.abin.lee</groupId>
     <artifactId>spring-cloud-start3</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    
+
     <modules>
         <module>cloud-eureka-registry</module>
         <module>cloud-service-provider3</module>
