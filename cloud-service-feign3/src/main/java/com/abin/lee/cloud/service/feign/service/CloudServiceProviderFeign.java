@@ -16,10 +16,10 @@ import java.util.Map;
 //@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455", configuration = CloudServiceProviderConfiguration.class)
 public interface CloudServiceProviderFeign {
 
-    @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/add", method = {RequestMethod.POST})
     Integer add(@RequestParam("param1") Integer param1, @RequestParam("param2") Integer param2);
 
-    @RequestMapping(value = "/find", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/find", method = {RequestMethod.POST})
     Map<String, String> find(@RequestParam("name") String name, @RequestParam("count") String count);
 
     @RequestMapping(value = "/get", method = {RequestMethod.GET, RequestMethod.POST})

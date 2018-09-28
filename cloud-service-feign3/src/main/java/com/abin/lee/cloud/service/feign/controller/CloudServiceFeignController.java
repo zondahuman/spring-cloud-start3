@@ -25,21 +25,21 @@ public class CloudServiceFeignController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     @Resource
     CloudServiceProviderFeign cloudServiceProviderFeign;
-    @Resource
-    CloudServiceProvider2Feign cloudServiceProvider2Feign;
+//    @Resource
+//    CloudServiceProvider2Feign cloudServiceProvider2Feign;
 
-    @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/adder", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public Integer add(Integer param1, Integer param2) {
+    public Integer adder(Integer param1, Integer param2) {
         log.info("param1=" + param1 + ", param2=" + param2);
         Integer result = this.cloudServiceProviderFeign.add(param1, param2);
         logger.info(", result:" + result);
         return result;
     }
 
-    @RequestMapping(value = "/find", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/finder", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public Map<String, String> find(String name, String count) {
+    public Map<String, String> finder(String name, String count) {
         log.info("name=" + name + ", count=" + count);
         Map<String, String> map = this.cloudServiceProviderFeign.find(name, count);
         log.info("map=" + map);
@@ -47,24 +47,24 @@ public class CloudServiceFeignController {
     }
 
 
-    
-    @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
-    public Integer add2(Integer param1, Integer param2) {
-        log.info("param1=" + param1 + ", param2=" + param2);
-        Integer result = this.cloudServiceProvider2Feign.add2(param1, param2);
-        logger.info(", result:" + result);
-        return result;
-    }
 
-    @RequestMapping(value = "/find2", method = {RequestMethod.GET, RequestMethod.POST})
-    @ResponseBody
-    public Map<String, String> find2(String name, String count) {
-        log.info("name=" + name + ", count=" + count);
-        Map<String, String> map = this.cloudServiceProvider2Feign.find2(name, count);
-        log.info("map=" + map);
-        return map;
-    }
+//    @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})
+//    @ResponseBody
+//    public Integer add2(Integer param1, Integer param2) {
+//        log.info("param1=" + param1 + ", param2=" + param2);
+//        Integer result = this.cloudServiceProvider2Feign.add2(param1, param2);
+//        logger.info(", result:" + result);
+//        return result;
+//    }
+//
+//    @RequestMapping(value = "/find2", method = {RequestMethod.GET, RequestMethod.POST})
+//    @ResponseBody
+//    public Map<String, String> find2(String name, String count) {
+//        log.info("name=" + name + ", count=" + count);
+//        Map<String, String> map = this.cloudServiceProvider2Feign.find2(name, count);
+//        log.info("map=" + map);
+//        return map;
+//    }
 
 
 }

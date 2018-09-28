@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-service-feign3</artifactId>
+    <packaging>jar</packaging>
 
 
     <properties>
