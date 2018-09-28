@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by abin on 2018/9/27.
  */
-@FeignClient("COUPONS-RULE-SERVICE")
+@FeignClient("cloud-service-provider")
 public interface CloudServiceFeign {
 
     @RequestMapping(value = "/category/find", method = RequestMethod.GET)
