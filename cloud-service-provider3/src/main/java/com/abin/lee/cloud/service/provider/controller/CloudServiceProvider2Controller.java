@@ -24,7 +24,7 @@ import java.util.Map;
  */
 @RefreshScope // 使用该注解的类，会在接到SpringCloud配置中心配置刷新的时候，自动将新的配置更新到该类对应的字段中。
 @Slf4j
-@RestController(value = "/provider2")
+@RestController
 public class CloudServiceProvider2Controller {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
