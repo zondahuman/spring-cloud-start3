@@ -34,6 +34,9 @@ public class CloudServiceProviderController {
     @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public Integer add(Integer param1, Integer param2) {
+        if(param1 % 2 == 1){
+            throw new RuntimeException("a new exception");
+        }
         log.info("param1=" + param1 + ", param2=" + param2);
         Integer result = param1 + param2;
         logger.info(", result:" + result);

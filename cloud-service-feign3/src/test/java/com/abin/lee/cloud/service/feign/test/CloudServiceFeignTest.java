@@ -30,6 +30,18 @@ public class CloudServiceFeignTest {
         System.out.println("result=" + result);
     }
 
+    @Test
+    public void testFeignAddLoop() throws IOException {
+        for (int i = 0; i < 100; i++) {
+            Map<String, String> params = Maps.newHashMap();
+            params.put("param1", "" + i);
+            params.put("param2", "200");
+            String result = OkHttpClientUtil.httpPost(httpCreateUrl, params);
+            System.out.println("result=" + result);
+        }
+
+    }
+
 
     @Test
     public void testFeignFind() throws IOException {
@@ -41,18 +53,17 @@ public class CloudServiceFeignTest {
     }
 
 
-
     @Test
     public void testFeignGet() throws IOException {
 //        String result = OkHttpClientUtil.httpPost(httpUrl+"get?id=5", null);
-        String result = OkHttpClientUtil.httpPost(httpUrl+"get/5", null);
+        String result = OkHttpClientUtil.httpPost(httpUrl + "get/5", null);
         System.out.println("result=" + result);
     }
 
     @Test
     public void testFeignGetList() throws IOException {
 //        String result = OkHttpClientUtil.httpPost(httpUrl+"get?id=5", null);
-        String result = OkHttpClientUtil.httpPost(httpUrl+"getList/5", null);
+        String result = OkHttpClientUtil.httpPost(httpUrl + "getList/5", null);
         System.out.println("result=" + result);
     }
 
@@ -61,8 +72,6 @@ public class CloudServiceFeignTest {
         String result = OkHttpClientUtil.httpGet(httpFindUrl);
         System.out.println("result=" + result);
     }
-
-
 
 
 }

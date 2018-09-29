@@ -1,8 +1,9 @@
 package com.abin.lee.cloud.service.feign.service;
 
+import com.abin.lee.cloud.service.feign.hystrix.CloudServiceProviderFeignHystrix;
 import com.abin.lee.cloud.service.model.CloudModel;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,7 @@ import java.util.Map;
  * 可以指定使用feign的注解@RequestLine
  */
 //首先使用serverId查找服务，如果找不到再使用url查找。
-@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455")
+@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455", fallback = CloudServiceProviderFeignHystrix.class)
 //@FeignClient(value = "cloud-service-provider", url = "http://localhost:9455", configuration = CloudServiceProviderConfiguration.class)
 public interface CloudServiceProviderFeign {
 
@@ -34,7 +35,7 @@ public interface CloudServiceProviderFeign {
 
 
     @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET})
-    List<CloudModel> findOrderByParam(@RequestAttribute("cloudModel") CloudModel orderModel);
+    List<CloudModel> findOrderByParam(@ModelAttribute("cloudModel") CloudModel orderModel);
 
     @RequestMapping(value = "/findOrderById", method = {RequestMethod.GET})
     List<CloudModel> findOrderById(@RequestParam("id") Long id);

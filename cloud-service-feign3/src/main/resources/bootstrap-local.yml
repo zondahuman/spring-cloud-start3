@@ -5,6 +5,31 @@ spring:
         application:
                       name: cloud-service-feign
 
+#首先开启Feign对Hystrix的支持，在properties文件中添加以下配置：
+feign:
+        hystrix:
+                  enabled: true
+hystrix:
+  command:
+    ##全局方法使用default
+    CloudServiceProviderFeign#add():
+      execution:
+        isolation:
+          thread:
+          ##超时时间
+            timeoutInMilliseconds: 500
+      #线程池核心线程数
+      coreSize: 1000
+      #QUEUE
+      maxQueueSize: 1
+      queueSizeRejectionThreshold: 100
+      circuitBreaker:
+      ##每秒3次请求
+        requestVolumeThreshold: 3
+
+
+
+
 eureka:
         client:
                 serviceUrl:
