@@ -52,6 +52,17 @@ public class CloudServiceFeignTest {
         System.out.println("result=" + result);
     }
 
+    @Test
+    public void testFeignFindLoop() throws IOException {
+        for (int i = 0; i < 100; i++) {
+            Map<String, String> params = Maps.newHashMap();
+            params.put("name", "lee");
+            params.put("count", "100");
+            String result = OkHttpClientUtil.httpPost(httpFindUrl, params);
+            System.out.println("result=" + result);
+        }
+    }
+
 
     @Test
     public void testFeignGet() throws IOException {
