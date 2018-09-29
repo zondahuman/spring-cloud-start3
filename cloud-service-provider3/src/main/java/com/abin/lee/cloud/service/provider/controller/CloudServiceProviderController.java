@@ -80,7 +80,7 @@ public class CloudServiceProviderController {
 
     @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    List<CloudModel> findOrderByParam(@ModelAttribute("cloudModel") CloudModel cloudModel) {
+    List<CloudModel> findOrderByParam(@ModelAttribute CloudModel cloudModel) {
         log.info("cloudModel=" + JsonUtil.toJson(cloudModel));
         Integer result = cloudModel.getId() + 500;
         logger.info(", result:" + result);

@@ -65,7 +65,7 @@ public class CloudServiceFeignController {
     }
 
     @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET, RequestMethod.POST})
-    List<CloudModel> findOrderByParam(@ModelAttribute("cloudModel") CloudModel orderModel){
+    List<CloudModel> findOrderByParam(@ModelAttribute CloudModel orderModel){
         log.info("orderModel=" + JsonUtil.toJson(orderModel));
         List<CloudModel> result = this.cloudServiceProviderFeign.findOrderByParam(orderModel);
         log.info("result=" + JsonUtil.toJson(result));
