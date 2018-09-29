@@ -4,26 +4,6 @@ server:
 spring:
         application:
                       name: cloud-service-ribbon
-        zipkin:
-                # 启动zipkin
-                enabled: true
-                # 指定zipkin的地址
-                baseUrl: http://localhost:9411/
-        sleuth:
-                sampler:
-                        #  采样率，默认值为0.1f，现在为了测试设置100%采集
-                        #zipkin采样率，默认为0.1，改为1后全采样，但是会降低接口调用效率
-                        percentage: 1
-        boot:
-              admin:
-                      url: http://localhost:7088
-        # spring cloud git conf
-        cloud:
-               config:
-                        name: financial-config
-                        profile: dev
-                        label: master
-                        uri: http://localhost:7001/
 
 eureka:
         client:
@@ -39,14 +19,6 @@ eureka:
 management:
             security:
                       enabled: false
-
-
-
-financial:
-            configs:
-                        names: ${financial.config.name}
-                        counts: ${financial.config.count}
-
 
 logging:
         levels:
