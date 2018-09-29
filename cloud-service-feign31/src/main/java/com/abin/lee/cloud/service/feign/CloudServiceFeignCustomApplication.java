@@ -17,10 +17,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @ServletComponentScan//扫描缓存
 //启动器一定要加@EnableFeignClients，代表进行Feign调用，Feign会到Eureka拉取服务列表，供调用的。
 @EnableFeignClients
-public class CloudServiceFeignApplication {
+public class CloudServiceFeignCustomApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudServiceFeignApplication.class, args);
+        SpringApplication.run(CloudServiceFeignCustomApplication.class, args);
     }
 
 }
