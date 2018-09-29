@@ -3,6 +3,7 @@ package com.abin.lee.cloud.service.feign.controller;
 import com.abin.lee.cloud.service.common.JsonUtil;
 import com.abin.lee.cloud.service.feign.service.CloudServiceProvider2Feign;
 import com.abin.lee.cloud.service.feign.service.CloudServiceProviderFeign;
+import com.abin.lee.cloud.service.model.CloudModel;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,6 +60,22 @@ public class CloudServiceFeignController {
     public List<Integer> getList(@PathVariable("id") Long id) {
         log.info("id=" + id);
         List<Integer> result = this.cloudServiceProviderFeign.getList(id);
+        log.info("result=" + JsonUtil.toJson(result));
+        return result;
+    }
+
+    @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET, RequestMethod.POST})
+    List<CloudModel> findOrderByParam(@ModelAttribute("cloudModel") CloudModel orderModel){
+        log.info("orderModel=" + JsonUtil.toJson(orderModel));
+        List<CloudModel> result = this.cloudServiceProviderFeign.findOrderByParam(orderModel);
+        log.info("result=" + JsonUtil.toJson(result));
+        return result;
+    }
+
+    @RequestMapping(value = "/findOrderById", method = {RequestMethod.GET, RequestMethod.POST})
+    List<CloudModel> findOrderById(@RequestParam("id") Long id){
+        log.info("id=" + id);
+        List<CloudModel> result = this.cloudServiceProviderFeign.findOrderById(id);
         log.info("result=" + JsonUtil.toJson(result));
         return result;
     }

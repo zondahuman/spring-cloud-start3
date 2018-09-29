@@ -34,7 +34,7 @@ public interface CloudServiceProviderFeign {
     List<Integer> getList(@RequestParam("id") Long id);
 
 
-    @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET})
+    @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.POST})
     List<CloudModel> findOrderByParam(@ModelAttribute("cloudModel") CloudModel orderModel);
 
     @RequestMapping(value = "/findOrderById", method = {RequestMethod.GET})

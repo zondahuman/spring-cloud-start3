@@ -78,6 +78,28 @@ public class CloudServiceFeignTest {
         System.out.println("result=" + result);
     }
 
+
+    @Test
+    public void testFeignFindOrderByParam() throws IOException {
+        Long id = (long) (Math.random() * 100);
+        Map<String, String> params = Maps.newHashMap();
+        params.put("name", "lee");
+        params.put("id", "" + id);
+        String result = OkHttpClientUtil.httpPost(httpUrl + "findOrderByParam", params);
+        System.out.println("result=" + result);
+    }
+
+
+    @Test
+    public void testFeignFindOrderById() throws IOException {
+        Long id = (long) (Math.random() * 100);
+        Map<String, String> params = Maps.newHashMap();
+        params.put("id", "" + id);
+        String result = OkHttpClientUtil.httpPost(httpUrl + "findOrderById", params);
+        System.out.println("result=" + result);
+    }
+
+
     @Test
     public void testFeignGetConf() throws IOException {
         String result = OkHttpClientUtil.httpGet(httpFindUrl);
