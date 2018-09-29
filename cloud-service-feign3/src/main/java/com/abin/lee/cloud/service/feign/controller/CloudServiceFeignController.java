@@ -47,12 +47,22 @@ public class CloudServiceFeignController {
 
     @RequestMapping(value = "/get/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public List<String> find(@PathVariable("id") Long id) {
+    public Integer get(@PathVariable("id") Long id) {
         log.info("id=" + id);
-        List<String> result = this.cloudServiceProviderFeign.get(id);
+        Integer result = this.cloudServiceProviderFeign.get(id);
         log.info("result=" + JsonUtil.toJson(result));
         return result;
     }
+
+    @RequestMapping(value = "/getList/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public List<Integer> getList(@PathVariable("id") Long id) {
+        log.info("id=" + id);
+        List<Integer> result = this.cloudServiceProviderFeign.getList(id);
+        log.info("result=" + JsonUtil.toJson(result));
+        return result;
+    }
+
 
 
     @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})

@@ -50,9 +50,14 @@ public class CloudServiceFeignTest {
     }
 
     @Test
+    public void testFeignGetList() throws IOException {
+//        String result = OkHttpClientUtil.httpPost(httpUrl+"get?id=5", null);
+        String result = OkHttpClientUtil.httpPost(httpUrl+"getList/5", null);
+        System.out.println("result=" + result);
+    }
+
+    @Test
     public void testFeignGetConf() throws IOException {
-
-
         String result = OkHttpClientUtil.httpGet(httpFindUrl);
         System.out.println("result=" + result);
     }
