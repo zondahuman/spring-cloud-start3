@@ -1,9 +1,9 @@
 # port
 server:
-        port: 9455
+        port: 9333
 spring:
         application:
-                      name: cloud-service-provider
+                      name: cloud-service-ribbon
         zipkin:
                 # 启动zipkin
                 enabled: true
