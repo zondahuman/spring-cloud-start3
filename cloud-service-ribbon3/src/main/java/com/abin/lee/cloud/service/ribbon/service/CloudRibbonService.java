@@ -1,6 +1,7 @@
 package com.abin.lee.cloud.service.ribbon.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,14 @@ public class CloudRibbonService {
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "addFallback")
+    @HystrixCommand(fallbackMethod = "addFallback", threadPoolProperties = {
+            @HystrixProperty(name = "coreSize", value = "20"), @HystrixProperty(name = "maxQueueSize", value = "100"),
+            @HystrixProperty(name = "queueSizeRejectionThreshold", value = "20")},
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "30000"),
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "20")
+
+            })
     public Integer add(Integer param1, Integer param2) {
         MultiValueMap<String, Object> request = new LinkedMultiValueMap<>();
         request.add("param1", param1);
