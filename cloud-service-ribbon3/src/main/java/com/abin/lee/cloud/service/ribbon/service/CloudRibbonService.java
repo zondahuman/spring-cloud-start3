@@ -1,5 +1,6 @@
 package com.abin.lee.cloud.service.ribbon.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class CloudRibbonService {
     @Autowired
     RestTemplate restTemplate;
 
-
+    @HystrixCommand(fallbackMethod = "addFallback")
     public Integer add(Integer param1, Integer param2) {
         MultiValueMap<String, Object> request = new LinkedMultiValueMap<>();
         request.add("param1", param1);
@@ -30,6 +31,7 @@ public class CloudRibbonService {
         return result;
     }
 
+    @HystrixCommand(fallbackMethod = "findFallback")
     public Map<String, String> find(String name, String count) {
         MultiValueMap<String, Object> request = new LinkedMultiValueMap<>();
         request.add("name", name);
@@ -38,6 +40,15 @@ public class CloudRibbonService {
         Map<String, String> response = restTemplate.postForObject("http://cloud-service-provider/find", request, Map.class);
 
         return response;
+    }
+
+
+    public Integer addFallback(Integer param1, Integer param2) {
+        return -1;
+    }
+
+    public Map<String, String> findFallback(String name, String count) {
+        return null;
     }
 
 }
