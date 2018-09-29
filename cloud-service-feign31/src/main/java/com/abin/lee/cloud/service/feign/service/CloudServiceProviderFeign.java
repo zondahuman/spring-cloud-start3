@@ -27,10 +27,10 @@ public interface CloudServiceProviderFeign {
     @RequestLine("POST /find")
     Map<String, String> find(@Param("name") String name, @Param("count") String count);
 
-    @RequestLine("GET /get")
+    @RequestLine("GET /get?id={id}")
     Integer get(@Param("id") Long id);
 
-    @RequestLine("GET /getList")
+    @RequestLine("GET /getList?id={id}")
     List<Integer> getList(@Param("id") Long id);
 
     @RequestLine("GET /findOrderByParam")
