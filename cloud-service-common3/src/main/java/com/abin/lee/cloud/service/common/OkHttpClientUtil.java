@@ -34,7 +34,7 @@ public class OkHttpClientUtil {
 
         Response response = httpClient.newCall(request).execute();
         String result = response.body().string();
-        System.out.println("result=" + result);
+//        System.out.println("result=" + result);
         if (response.isSuccessful()) {
             return result;
         } else {

@@ -32,7 +32,7 @@ public class CloudServiceRibbonTest {
 
     @Test
     public void testFeignAddLoop() throws IOException {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100000; i++) {
             Map<String, String> params = Maps.newHashMap();
             params.put("param1", "" + i);
             params.put("param2", "200");

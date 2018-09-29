@@ -29,7 +29,6 @@ public class CloudRibbonService {
             commandProperties = {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "30000"),
                     @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "20")
-
             })
     public Integer add(Integer param1, Integer param2) {
         MultiValueMap<String, Object> request = new LinkedMultiValueMap<>();
