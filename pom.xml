@@ -15,6 +15,7 @@
         <module>cloud-service-ribbon3</module>
         <module>cloud-service-common3</module>
         <module>cloud-service-model</module>
+        <module>cloud-service-feign31</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -144,6 +145,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
             </plugin>
 
             <plugin>
