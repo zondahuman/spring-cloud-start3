@@ -43,8 +43,9 @@ public class CloudServiceFeignTest {
 
 
     @Test
-    public void testZipkinSimple1() throws IOException {
-        String result = OkHttpClientUtil.httpPost(httpUrl, null);
+    public void testFeignGet() throws IOException {
+//        String result = OkHttpClientUtil.httpPost(httpUrl+"get?id=5", null);
+        String result = OkHttpClientUtil.httpPost(httpUrl+"get/5", null);
         System.out.println("result=" + result);
     }
 

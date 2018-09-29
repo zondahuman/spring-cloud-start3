@@ -12,6 +12,8 @@ import java.util.Map;
 
 /**
  * Created by abin on 2018/9/27.
+ * feign客户客户端的时候，默认使用springmvc的注解@RequestMapping，method只能使用一个
+ * 可以指定使用feign的注解@RequestLine
  */
 //首先使用serverId查找服务，如果找不到再使用url查找。
 @FeignClient(value = "cloud-service-provider", url = "http://localhost:9455")

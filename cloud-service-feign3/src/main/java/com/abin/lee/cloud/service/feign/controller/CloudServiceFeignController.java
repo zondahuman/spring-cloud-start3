@@ -1,17 +1,16 @@
 package com.abin.lee.cloud.service.feign.controller;
 
+import com.abin.lee.cloud.service.common.JsonUtil;
 import com.abin.lee.cloud.service.feign.service.CloudServiceProvider2Feign;
 import com.abin.lee.cloud.service.feign.service.CloudServiceProviderFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,6 +45,14 @@ public class CloudServiceFeignController {
         return map;
     }
 
+    @RequestMapping(value = "/get/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public List<String> find(@PathVariable("id") Long id) {
+        log.info("id=" + id);
+        List<String> result = this.cloudServiceProviderFeign.get(id);
+        log.info("result=" + JsonUtil.toJson(result));
+        return result;
+    }
 
 
     @RequestMapping(value = "/add2", method = {RequestMethod.GET, RequestMethod.POST})
