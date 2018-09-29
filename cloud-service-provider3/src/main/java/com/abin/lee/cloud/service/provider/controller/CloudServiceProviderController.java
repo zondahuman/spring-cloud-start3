@@ -34,7 +34,7 @@ public class CloudServiceProviderController {
     @RequestMapping(value = "/add", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public Integer add(Integer param1, Integer param2) {
-        if(param1 % 2 == 1){
+        if (param1 % 2 == 1) {
             throw new RuntimeException("a new exception");
         }
         log.info("param1=" + param1 + ", param2=" + param2);
@@ -80,7 +80,7 @@ public class CloudServiceProviderController {
 
     @RequestMapping(value = "/findOrderByParam", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    List<CloudModel> findOrderByParam(@RequestAttribute("cloudModel") CloudModel cloudModel) {
+    List<CloudModel> findOrderByParam(@ModelAttribute("cloudModel") CloudModel cloudModel) {
         log.info("cloudModel=" + JsonUtil.toJson(cloudModel));
         Integer result = cloudModel.getId() + 500;
         logger.info(", result:" + result);
